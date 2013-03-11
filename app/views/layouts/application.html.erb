@@ -15,6 +15,12 @@
 		</div>
 		<%= render 'layouts/alerts' %>
 		<%= yield %>
+		<% if Rails.env.development? %>
+			<%= debug(params) %>
+			<% if signed_in? %>
+				current_user: <%= current_user.email %>
+			<% end %>		
+		<% end %>
 	</div>
 </body>
 </html>

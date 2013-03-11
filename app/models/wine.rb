@@ -11,4 +11,8 @@
 
 class Wine < ActiveRecord::Base
   attr_accessible :name, :year
+
+  has_many :user_wines
+  has_many :users, :through => :user_wines
+
 end

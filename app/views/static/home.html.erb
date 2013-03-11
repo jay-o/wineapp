@@ -2,6 +2,21 @@
 
 <% unless signed_in? %>
 	<h3>Logged out</h3>
-<% else %>
+
+<% else %>	
 	<h3>My Wines</h3>
+	<% if current_user.wines.any?%>
+		<ul>
+			<% current_user.wines.each do |uw| %>
+				<li>
+					Wine: <%= uw.name %> <br>
+					Year: <%= uw.year %>
+				</li>
+			<% end %>
+		</ul>
+		<%= link_to "Add More Wines", wines_path %>
+	<% else %>	
+		<h5>No Wines Yet</h5>
+		<%= link_to "Add Wines", wines_path %>
+	<% end %>
 <% end %>
