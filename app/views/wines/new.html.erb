@@ -1,0 +1,10 @@
+<%= form_for @wine do |wine| %>
+		<strong>Wine Name:</strong>
+		<%= wine.text_field :name %>
+		<br>
+		<strong>Vintage:</strong>
+		<%= wine.number_field :year %>
+		<%= wine.submit %>
+<% end %>
+
+<%= link_to "Back", :back %>

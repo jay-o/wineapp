@@ -1,0 +1,13 @@
+<h1>Wine List</h1>
+
+
+<%= link_to "Add New Wine", new_wine_path %>
+<ul>
+	<% @wines.each do |wine| %>
+		<li>
+			ID: <%= wine.id %> <br>
+			Wine Name: <%= wine.name %> <br/>
+			Vintage: <%= wine.year %>
+		</li>
+	<% end %>
+</ul>
