@@ -1,1 +1,7 @@
 <h1>WineApp 2.0 Home Page</h1>
+
+<% unless signed_in? %>
+	<h3>Logged out</h3>
+<% else %>
+	<h3>My Wines</h3>
+<% end %>
