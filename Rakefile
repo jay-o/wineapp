@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Wine::Application.load_tasks
+Wineapp::Application.load_tasks

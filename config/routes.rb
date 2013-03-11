@@ -1,4 +1,4 @@
-Wine::Application.routes.draw do
+Wineapp::Application.routes.draw do
   devise_for :users
 
   resources :users
