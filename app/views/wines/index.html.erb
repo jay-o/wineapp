@@ -2,21 +2,34 @@
 
 
 <%= link_to "Add New Wine", new_wine_path %>
-<ul>
+<br>
+<br>
+<table cellpadding="5" cellspacing="0">
+	<tr>
+		<td><strong>Wine</strong></td>
+		<td><strong>Name</strong></td>
+		<td><strong>Year</strong></td>
+		<td><strong>Own/Add</strong></td>
+	</tr>
 	<% @wines.each do |wine| %>
-		<li>
-			<%= link_to "View wine #{wine.id}", wine_path(wine) %> |  Name: <%= wine.name %> | Vintage: <%= wine.year %>
-			<% if signed_in? %>	
-				<% if current_user.wines.find_by_id(wine)%>
-					- Already Own
-				<% else %>
-					Don't Own - 
-					<%= form_for(current_user.user_wines.build(wine_id: wine.id)) do |f| %>
-						<%= f.hidden_field :wine_id %>
-						<%= f.submit "Add to Cellar" %>
-					<% end %>		
+		<tr>
+			<td>
+				<%= link_to "View wine #{wine.id}", wine_path(wine) %>
+			</td>
+			<td><%= wine.name %></td>
+			<td><%= wine.year %></td>
+			<td>	
+				<% if signed_in? %>	
+					<% if current_user.wines.find_by_id(wine)%>
+						Already Own
+					<% else %>
+						<%= form_for(current_user.user_wines.build(wine_id: wine.id)) do |f| %>
+							<%= f.hidden_field :wine_id %>
+							<%= f.submit "Add to Cellar" %>
+						<% end %>		
+					<% end %>
 				<% end %>
-			<% end %>
-		</li>
+			</td>
+		</tr>
 	<% end %>
-</ul>
+</table>

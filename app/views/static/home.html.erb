@@ -6,14 +6,22 @@
 <% else %>	
 	<h3>My Wines</h3>
 	<% if current_user.wines.any?%>
-		<ul>
+		<table cellpadding="5" cellspacing="0">
+			<tr>
+				<td><strong>Name</strong></td>
+				<td><strong>Year</strong></td>
+			</tr>
 			<% current_user.wines.each do |uw| %>
-				<li>
-					Wine: <%= uw.name %> <br>
-					Year: <%= uw.year %>
-				</li>
+				<tr>
+					<td>
+						<%= link_to uw.name, wine_path(uw) %>
+					</td>
+					<td>
+						<%= uw.year %>
+					</td>
+				</tr>
 			<% end %>
-		</ul>
+		</table>
 		<%= link_to "Add More Wines", wines_path %>
 	<% else %>	
 		<h5>No Wines Yet</h5>
