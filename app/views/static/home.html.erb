@@ -8,17 +8,21 @@
 	<% if current_user.wines.any?%>
 		<table cellpadding="5" cellspacing="0">
 			<tr>
-				<td><strong>Name</strong></td>
-				<td><strong>Year</strong></td>
+				<td><strong>User Wine id</strong></td>
+				<td><strong>Wine Name</strong></td>
+				<td><strong>Wine ID</strong></td>
+				<td><strong>Varietal</strong></td>
+				<td><strong>Quantity</strong></td>
+				<td><strong>Rating</strong></td>
 			</tr>
-			<% current_user.wines.each do |uw| %>
+			<% current_user.user_wines.each do |uw| %>
 				<tr>
-					<td>
-						<%= link_to uw.name, wine_path(uw) %>
-					</td>
-					<td>
-						<%= uw.year %>
-					</td>
+					<td><%= uw.id%></td>
+					<td><%= uw.wine.name %></td>
+					<td><%= uw.wine_id %></td>
+					<td><%= link_to 'Details', user_wine_path(uw) %></td>
+					<td><%= number_with_delimiter(uw.quantity) %></td>
+					<td></td>
 				</tr>
 			<% end %>
 		</table>

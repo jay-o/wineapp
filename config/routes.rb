@@ -5,7 +5,7 @@ Wineapp::Application.routes.draw do
 
   resources :users
   resources :wines
-  resources :user_wines, only: [:create, :destroy]
+  resources :user_wines
 
   root :to => "static#home"
   get "static/about"

@@ -1,0 +1,14 @@
+<table>
+	<tr>
+		<td><strong>Name</strong></td>
+		<td><strong>Year</strong></td>
+		<td><strong>Quantity</strong></td>
+	</tr>
+	<% @user_wines.each do |uw| %>
+		<tr>
+			<td><%= uw.wine.name %></td>
+			<td><%= uw.wine.year %></td>
+			<td><%= uw.quantity %></td>
+		</tr>
+	<% end %>
+</table>
