@@ -9,18 +9,22 @@
 <body>
 	<div id="container">
 		<div id="fixed-top">
-			<%= link_to 'Home', root_path %> | 
-			<%= link_to 'My Wines', user_wines_path %>
+			<%= link_to 'Home', root_path %>
+			<% if signed_in? %>
+				| <%= link_to 'My Wines', user_wines_path %>
+			<% end %>
 			<div id="user"><%= render 'layouts/top-nav' %></div>
 		</div>
 		<%= render 'layouts/alerts' %>
 		<%= yield %>
-		<% if Rails.env.development? %>
-			<%= debug(params) %>
-			<% if signed_in? %>
-				current_user: <%= current_user.email %>
-			<% end %>		
-		<% end %>
+		<footer>
+			<% if Rails.env.development? %>
+				<%= debug(params) %>
+				<% if signed_in? %>
+					current_user: <%= current_user.email %>
+				<% end %>		
+			<% end %>
+		</footer>
 	</div>
 </body>
 </html>
