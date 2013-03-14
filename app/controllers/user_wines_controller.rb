@@ -23,7 +23,7 @@ class UserWinesController < ApplicationController
 	def update
 		@user_wine = UserWine.find(params[:id])
 		if @user_wine.update_attributes(params[:user_wine])
-			flash[:success] = "Quantity updated to #{@user_wine.quantity}."
+			flash[:success] = "updated"
 			redirect_to @user_wine
 		else 
 			flash[:error] = "NOT updated."

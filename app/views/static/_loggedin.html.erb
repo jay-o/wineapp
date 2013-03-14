@@ -6,7 +6,6 @@
 			<td><strong>Wine Name</strong></td>
 			<td><strong>Wine ID</strong></td>
 			<td><strong>Varietal</strong></td>
-			<td><strong>Quantity</strong></td>
 			<td><strong>Rating</strong></td>
 		</tr>
 		<% current_user.user_wines.each do |uw| %>
@@ -15,7 +14,6 @@
 				<td><%= uw.wine.name %></td>
 				<td><%= uw.wine_id %></td>
 				<td><%= link_to 'Details', user_wine_path(uw) %></td>
-				<td><%= number_with_delimiter(uw.quantity) %></td>
 				<td></td>
 			</tr>
 		<% end %>

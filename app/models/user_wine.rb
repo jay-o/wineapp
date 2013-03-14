@@ -7,11 +7,10 @@
 #  wine_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  quantity   :integer
 #
 
 class UserWine < ActiveRecord::Base
-  attr_accessible :user_id, :wine_id, :quantity
+  attr_accessible :user_id, :wine_id
 
   belongs_to :user
   belongs_to :wine
