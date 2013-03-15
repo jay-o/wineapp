@@ -1,2 +1,21 @@
-<h2>Wine Name: <%= @wine.name %></h2>
-<h2>Year: <%= @wine.year %></h2>
+<h2>Wine Name: <%= @user_wine.wine.name %></h2>
+<p>
+	Year: <%= @user_wine.wine.year %> <br>
+	Added: <%= pluralize(@wines_added, 'Bottle') %> <br> 
+	Drank: <%= pluralize(@wines_drank, 'Bottle') %> <br>
+	<strong>Available In Your Cellar: <%= pluralize(@user_wine.quantity, 'Bottle') %></strong>
+	
+</p>
+
+
+<h3>Wine Log</h3>
+<%= link_to 'Add Activity', new_user_wine_user_wine_log_path(@user_wine) %>
+<ol>
+	<% @user_wine.user_wine_logs.each do |uw| %>
+		<li>
+		Action: <%= uw.action %> <br>
+		Add/Drank: <%= uw.increment_quantity %> <br>
+		Notes: <%= uw.notes %>
+		</li>
+	<% end %>
+</ol>

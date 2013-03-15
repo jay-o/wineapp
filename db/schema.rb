@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311013152) do
+ActiveRecord::Schema.define(:version => 20130314043507) do
+
+  create_table "user_wine_logs", :force => true do |t|
+    t.integer  "user_wine_id"
+    t.string   "action"
+    t.date     "action_date_at"
+    t.text     "notes"
+    t.integer  "increment_quantity"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "user_wines", :force => true do |t|
     t.integer  "user_id"
     t.integer  "wine_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "quantity",   :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "users", :force => true do |t|

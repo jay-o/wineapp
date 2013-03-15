@@ -12,8 +12,8 @@ class UserWinesController < ApplicationController
 
 	def show
 		@user_wine = UserWine.find(params[:id])
-		@wine = UserWine.find(params[:id]).wine
-		@user = UserWine.find(params[:id]).user
+		@wines_added = @user_wine.user_wine_logs.where("increment_quantity > 0").sum(:increment_quantity)
+		@wines_drank = @user_wine.user_wine_logs.where("increment_quantity <= 0").sum(:increment_quantity)*-1
 	end
 
 	def edit

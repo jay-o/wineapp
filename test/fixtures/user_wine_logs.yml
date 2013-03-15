@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: user_wine_logs
+#
+#  id                 :integer          not null, primary key
+#  user_wine_id       :integer
+#  action             :string(255)
+#  action_date_at     :date
+#  notes              :text
+#  increment_quantity :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_wine_id: 1
+  action: MyString
+  action_date: 2013-03-13
+
+two:
+  user_wine_id: 1
+  action: MyString
+  action_date: 2013-03-13

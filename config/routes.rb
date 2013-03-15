@@ -1,11 +1,12 @@
 Wineapp::Application.routes.draw do
-  get "user_wines/create"
 
   devise_for :users
 
   resources :users
   resources :wines
-  resources :user_wines
+  resources :user_wines do 
+    resources :user_wine_logs
+  end
 
   root :to => "static#home"
   get "static/about"
