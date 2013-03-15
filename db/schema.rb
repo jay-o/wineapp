@@ -14,10 +14,11 @@
 ActiveRecord::Schema.define(:version => 20130314043507) do
 
   create_table "user_wine_logs", :force => true do |t|
+    t.integer  "user_id"
     t.integer  "user_wine_id"
     t.string   "action"
     t.date     "action_date_at"
-    t.text     "notes"
+    t.text     "note"
     t.integer  "increment_quantity"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
