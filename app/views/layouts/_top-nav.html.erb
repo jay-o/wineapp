@@ -3,7 +3,7 @@
 	<% if current_user.first_name.nil? %>
 	 	<strong><%= "#{current_user.email}" %></strong>
 	<% else %>
-		<strong><%= "#{current_user.first_name} #{current_user.last_name}" %></strong>
+		<strong><%= "#{current_user.first_name}" %></strong>
 	<% end %>
 	<%= link_to 'Edit profile', edit_user_registration_path %> |
 	<%= link_to "Logout", destroy_user_session_path, method: :delete %>

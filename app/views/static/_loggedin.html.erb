@@ -30,6 +30,7 @@
 	<% current_user.user_wine_logs.each do |uwl| %>
 		<div style="padding: 10px; border-top: 1px solid gray;">
 			Date: <%= uwl.updated_at %> <br />
+			Wine Name: <strong>ADD THIS</strong><br />
 			Action: <%= uwl.action %> <br />
 			Quantity: <%= uwl.increment_quantity %> <br />
 			Note: <%= uwl.note %>

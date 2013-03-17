@@ -4,7 +4,7 @@ class UserWinesController < ApplicationController
 		@user_wine = current_user.user_wines.build(wine_id: @wine.id)
 		if @user_wine.save
   			flash[:success] = "#{@wine.name.titleize} added to your cellar."
-  			redirect_to @user_wine
+  			redirect_to new_user_wine_user_wine_log_path(@user_wine)
 		else
 			redirect_to 'new'
 		end

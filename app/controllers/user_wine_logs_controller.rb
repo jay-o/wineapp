@@ -25,7 +25,7 @@ class UserWineLogsController < ApplicationController
   	@user_wine = UserWine.find(params[:user_wine_id])
   	@user_wine_log = @user_wine.user_wine_logs.build(params[:user_wine_log])
   	if @user_wine_log.save
-      flash[:sucess] = "Successfully created log."
+      flash[:sucess] = "Successfully added note."
       redirect_to user_wine_path(@user_wine_log.user_wine_id)
     else
       render :action => 'new'
