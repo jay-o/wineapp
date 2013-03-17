@@ -15,8 +15,9 @@
 
 class UserWineLog < ActiveRecord::Base
   attr_accessible :action, :action_date_at, :user_wine_id, :notes, :increment_quantity, :note
-  belongs_to :user_wines
+  belongs_to :user_wine
   belongs_to :user
+  belongs_to :wine
   
   before_save :drank
 
