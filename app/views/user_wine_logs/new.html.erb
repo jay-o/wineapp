@@ -1,2 +1,20 @@
 <h1>UserWineLogs#create</h1>
 <p>Find me in app/views/user_wine_logs/create.html.erb</p>
+
+<%= form_for [@user_wine, @user_wine_log] do |f| %>
+	<p>
+		Activity: Drank or Bought? <br />
+		<%= f.radio_button :action, "Drank" %> Drank
+		<%= f.radio_button :action, "Bought" %> Bought
+	</p>
+	<p>
+		Note: <br />
+		<%= f.text_field :note %>
+	</p>
+	<p>
+		Quantity: <br />
+		<%= f.number_field :increment_quantity %>
+	</p>
+
+	<%= f.submit %>
+<% end %>

@@ -8,6 +8,8 @@ Wineapp::Application.routes.draw do
     resources :user_wine_logs
   end
 
+  resources :user_wine_logs, :only => [:index]
+
   root :to => "static#home"
   get "static/about"
 

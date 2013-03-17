@@ -9,13 +9,15 @@
 
 
 <h3>Wine Log</h3>
+
 <%= link_to 'Add Activity', new_user_wine_user_wine_log_path(@user_wine) %>
+
 <ol>
 	<% @user_wine.user_wine_logs.each do |uw| %>
 		<li>
 		Action: <%= uw.action %> <br>
-		Add/Drank: <%= uw.increment_quantity %> <br>
-		Notes: <%= uw.notes %>
+		Quantity: <%= uw.increment_quantity %> <br>
+		Note: <%= uw.note %>
 		</li>
 	<% end %>
 </ol>
