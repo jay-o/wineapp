@@ -1,4 +1,4 @@
-<h3>My Cellar</h3>
+<h3>My Cellar | <%= link_to "Cellar History", static_cellar_history_path %> </h3>
 <% if current_user.wines.any? %>
 	<table cellpadding="5" cellspacing="0">
 		<tr>
@@ -13,7 +13,7 @@
 				<td><%= uw.id%></td>
 				<td><%= uw.wine.name %></td>
 				<td><%= uw.wine_id %></td>
-				<td><%= link_to 'Details', user_wine_path(uw) %></td>
+				<td><%= link_to "Details", user_wine_path(uw) %></td>
 				<td><%= current_user.user_wine_logs.where('wine_id = ?', uw.wine_id).sum(:increment_quantity) %> </td>
 			</tr>
 		<% end %>
@@ -22,4 +22,17 @@
 <% else %>	
 	<h5>No Wines Yet</h5>
 	<%= link_to "Start Your Cellar", wines_path %>
+<% end %>
+
+
+<% if current_user.user_wine_logs.any? %>
+<h3>Recent Activity</h3>
+	<% current_user.user_wine_logs.each do |uwl| %>
+		<div style="padding: 10px; border-top: 1px solid gray;">
+			Date: <%= uwl.updated_at %> <br />
+			Action: <%= uwl.action %> <br />
+			Quantity: <%= uwl.increment_quantity %> <br />
+			Note: <%= uwl.note %>
+		</div>
+	<% end %>
 <% end %>

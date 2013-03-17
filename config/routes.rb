@@ -12,6 +12,10 @@ Wineapp::Application.routes.draw do
 
   root :to => "static#home"
   get "static/about"
+  get "static/community"
+  get "static/cellar_history"
+
+  get "/cellar-history" => "static#cellar-history"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

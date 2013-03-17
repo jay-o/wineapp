@@ -20,6 +20,8 @@ class UserWineLog < ActiveRecord::Base
   
   before_save :drank
 
+  default_scope order: 'user_wine_logs.updated_at DESC'
+
   private
 	  def drank
 	  	if self.action == 'Drank'

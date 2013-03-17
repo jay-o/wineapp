@@ -22,7 +22,7 @@ def make_users
 end
   
 def make_wines
-  30.times do |n|
+  10.times do |n|
     name  = ['Pinot Noir','Chardonnay','Cabernet Sauvignon',
               'Beaujolais','Hermitage','Savennieres'].shuffle.first
     year  = (1950..2012).to_a.shuffle.first
@@ -34,7 +34,7 @@ end
 def make_user_wines
   user = User.all
   user.each do |u|
-    x = (3..10).to_a.shuffle.first
+    x = (1..2).to_a.shuffle.first
     w = (1..10).to_a.shuffle
     n = 0
     x.times do
@@ -47,7 +47,7 @@ end
 def make_user_wine_logs
   user_wine = UserWine.all
   user_wine.each do |uw|
-    x = (2..10).to_a.shuffle.first
+    x = (2..3).to_a.shuffle.first
     x.times do 
       action = ['Bought','Drank'].shuffle.first
       if action == 'Drank'
@@ -57,6 +57,7 @@ def make_user_wine_logs
       end
       uw.user_wine_logs.create!(action: action,
                                 increment_quantity: quantity )
+      sleep(1)
     end
   end    
 end

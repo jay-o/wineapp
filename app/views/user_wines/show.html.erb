@@ -16,7 +16,9 @@
 <ol>
 	<% @user_wine.user_wine_logs.each do |uw| %>
 		<li>
+		Updated At: <%= time_ago_in_words(uw.updated_at) %> ago. <br />
 		Action: <%= uw.action %> <br />
+		Date of Action: <%= uw.action_date_at %> <br />
 		Quantity: <%= uw.increment_quantity %> <br />
 		Note: <%= uw.note %> <br />
 		<%= link_to 'Edit Activity', edit_user_wine_log_path(uw) %>
