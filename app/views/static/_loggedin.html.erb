@@ -14,7 +14,7 @@
 				<td><%= uw.wine.name %></td>
 				<td><%= uw.wine_id %></td>
 				<td><%= link_to 'Details', user_wine_path(uw) %></td>
-				<td><%= uw.quantity %></td>
+				<td><%= current_user.user_wine_logs.where('wine_id = ?', uw.wine_id).sum(:increment_quantity) %> </td>
 			</tr>
 		<% end %>
 	</table>
