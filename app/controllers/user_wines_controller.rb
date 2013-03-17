@@ -1,9 +1,13 @@
 class UserWinesController < ApplicationController
   	def create
-		@wine = Wine.find_by_id(params[:user_wine][:wine_id])
-		current_user.user_wines.create!(wine_id: @wine.id)
-  		flash[:success] = "#{@wine.name.titleize} added to your cellar."
-  		redirect_to wines_path
+		@wine = Wine.find(params[:user_wine][:wine_id])
+		@user_wine = current_user.user_wines.build(wine_id: @wine.id)
+		if @user_wine.save
+  			flash[:success] = "#{@wine.name.titleize} added to your cellar."
+  			redirect_to @user_wine
+		else
+			redirect_to 'new'
+		end
 	end
 
 	def index
@@ -14,6 +18,7 @@ class UserWinesController < ApplicationController
 		@user_wine = UserWine.find(params[:id])
 		@wines_added = @user_wine.user_wine_logs.where("increment_quantity > 0").sum(:increment_quantity)
 		@wines_drank = @user_wine.user_wine_logs.where("increment_quantity <= 0").sum(:increment_quantity)
+		@in_stock = @user_wine.user_wine_logs.sum("increment_quantity")
 	end
 
 	def edit

@@ -9,10 +9,8 @@
 <body>
 	<div id="container">
 		<div id="fixed-top">
-			<%= link_to 'Home', root_path %>
-			<% if signed_in? %>
-				| <%= link_to 'My Wines', user_wines_path %>
-			<% end %>
+			<%= link_to 'Home', root_path %> | 
+			<%= link_to 'All Wines', wines_path  %>
 			<div id="user"><%= render 'layouts/top-nav' %></div>
 		</div>
 		<%= render 'layouts/alerts' %>

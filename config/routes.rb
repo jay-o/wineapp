@@ -4,7 +4,7 @@ Wineapp::Application.routes.draw do
 
   resources :users
   resources :wines
-  resources :user_wines do 
+  resources :user_wines, :shallow => true do 
     resources :user_wine_logs
   end
 

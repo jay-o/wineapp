@@ -1,0 +1,22 @@
+<%= form_for @user_wine_log do |f| %>
+	
+	<p>
+		<%= f.radio_button :action, 'Bought' %> Bought
+		<%= f.radio_button :action, 'Drank' %> Drank <br />
+		Quantity:
+		<%= f.text_field :increment_quantity %>
+	</p>
+	<p>
+		Date:
+		<%= f.date_select :action_date_at %>
+	</p>
+	<p>
+		<%= f.label :note %>:
+		<%= f.text_field :note %>
+	</p>
+	<p>
+		
+	</p>
+
+	<%= f.submit %>
+<% end %>
